@@ -9,6 +9,8 @@ $navbar-text-color: #EEEEEE
   z-index: 10
 
   .navbar__brand-logo
+    display: flex
+    align-items: center
     padding: $navbar-padding
     color: $navbar-text-color
     text-decoration: none
@@ -27,22 +29,31 @@ $navbar-text-color: #EEEEEE
 .navbar--icon
   width: 24px
   height: 24px
-  margin: 0px 1vw
-  background-color: $navbar-text-color
+  padding: 2px
+  margin: 0px 5px
+  background-size: 100%
+  background-repeat: no-repeat
+  filter: invert(100%)
+
+@media screen and (min-width: 500px)
+  .navbar--icon
+    margin: 0px 1vw
+    width: calc(24px + 0.4vw)
+    height: calc(24px + 0.4vw)
 
 .navbar--outline
   background-color: $secondary
 
 .navbar--resume-icon
-  background-image: url('../img/icon/assignment-24px.svg')
+  background-image: url('../img/icon/cloud_download-24px.svg')
   @extend .navbar--icon
 
 .navbar--contact-icon
-  background-image: url('../img/icon/contact-24px.svg')
+  background-image: url('../img/icon/message-24px.svg')
   @extend .navbar--icon
 
 .navbar--about-icon
-  background-image: url('../img/icon/about-24px.svg')
+  background-image: url('../img/icon/person-24px.svg')
   @extend .navbar--icon
 
 .navbar--fixed

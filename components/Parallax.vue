@@ -11,7 +11,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from "nuxt-property-decorator"
 
-import { EventBus, ON_RESIZE_EVENT } from "~/lib"
+import { EventBus, UPDATE_PARALLAX_EVENT, IS_MOBILE_EVENT } from "~/lib"
 
 @Component({})
 export default class Parallax extends Vue {
@@ -42,7 +42,8 @@ export default class Parallax extends Vue {
   }
 
   beforeMount() {
-    EventBus.$on(ON_RESIZE_EVENT, this.resize)
+    EventBus.$on(UPDATE_PARALLAX_EVENT, this.resize)
+    EventBus.$on(IS_MOBILE_EVENT, this.resetParallax)
   }
 
   mounted() {
@@ -51,7 +52,12 @@ export default class Parallax extends Vue {
   }
 
   beforeDestroy() {
-    EventBus.$off(ON_RESIZE_EVENT, this.resize)
+    EventBus.$off(UPDATE_PARALLAX_EVENT, this.resize)
+    EventBus.$off(IS_MOBILE_EVENT, this.resetParallax)
+  }
+
+  resetParallax() {
+    this.parallax = 0
   }
 
   resize() {

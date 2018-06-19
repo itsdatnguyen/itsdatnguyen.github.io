@@ -5,30 +5,32 @@
         h1(slot="title") About Me
     banner(color="accent" :small="true")
     article.text-container
-      h2.text-emphasize Intro
+      banner(color="accent" :small="true")
+        h2.text-emphasize-primary(slot="title") Intro
       p Hi, I'm Dat Nguyen. I've been programming since I was in grade 9. As of this date: (June 18, 2018) I am 21 years old.
       p I am currently in college for software development.
       p I have numerous side projects, all based around various technologies like Unreal Engine 4, Angular, Vue.js, Game Maker and Ionic 2. Its a fun hobby and I can show off to people.
     article.text-container
-      h2.text-emphasize Projects
-      h4.text-emphasize Red's Adventure
+      banner(color="accent" :small="true")
+        h2.text-emphasize-primary(slot="title") Projects
+      h4.text-emphasize-primary Red's Adventure
       p.
         I used Game Maker for a high school computer programming culminating assignment. 
         I created <a href="https://github.com/itsdatnguyen/reds-adventure">Red's Adventure</a> which is a action/reflex based platforming game. 
         I gave it a test drive on the classroom peers and they all thought it was impossible to beat. 
         It seemed they really liked it. I got 95% for that assignment, and a cool github project to show off.
-      h4.text-emphasize Stealth Game
+      h4.text-emphasize-primary Stealth Game
       p.
         After Game Maker, I decided that Unreal Engine 4 would be a great place to test out 3-D game development. 
         For me, Unreal Engine 4 was a bit more better than Unity.
         So I messed around with Unreal Engine 4 for over the course of 2 years, and created <a href="https://github.com/itsdatnguyen/stealth-game">Stealth Game</a> (I know, super generic name...) as a stealth gameplay demo.
         A lot of its gameplay is borrowed from Splinter Cell: Conviction, which I based this game off of. 
-      h4.text-emphasize Utility 
+      h4.text-emphasize-primary Utility 
       p.
         After taking several web development classes from college, I decided to invest in learning web development and create some websites. 
         I refined my knowledge of Bootstrap and JQuery, and eventually decided to teach myself Angular 2. 
         As a result, I was able to create <a href="https://itsdatnguyen.github.io/utility/">Utility</a>, which is an Angular 2 SPA that focuses on providing everyday utilities.
-      h4.text-emphasize CSS Playground
+      h4.text-emphasize-primary CSS Playground
       p.
         While in the middle of my coop at PHRI (Population Health Research Institute), I began working on my <a href="http://css-playground.com">CSS Playground</a> website.
         Basically, CSS Playground is a website that makes it fun to learn CSS with playful sliders and select boxes. 

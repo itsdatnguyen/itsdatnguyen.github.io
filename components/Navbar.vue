@@ -1,11 +1,11 @@
 <template lang="pug">
   nav.navbar
-    nuxt-link.navbar__brand-logo(to="/" :class="outlineClasses") Dat Nguyen
+    nuxt-link.navbar__brand-logo(to="/" :class="outlineClasses" title="Home") Dat Nguyen
     .navbar__link-spacer(:class="spacerClasses")
     .navbar__links(:class="outlineClasses")
-      nuxt-link.navbar--about-icon(to="/about")
-      nuxt-link.navbar--contact-icon(to="/contact")
-      a.navbar--resume-icon(download href="./resume.pdf")
+      nuxt-link.navbar--about-icon(to="/about" title="About")
+      nuxt-link.navbar--contact-icon(to="/contact" title="Contact")
+      a.navbar--resume-icon(download href="./resume.pdf" title="Download Resume")
 
     
 </template>
@@ -14,7 +14,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from "nuxt-property-decorator"
 
-import { EventBus, ON_RESIZE_EVENT } from "~/lib"
+import { EventBus, UPDATE_NAVBAR_EVENT } from "~/lib"
 
 @Component({})
 export default class Navbar extends Vue {
@@ -42,7 +42,7 @@ export default class Navbar extends Vue {
   }
 
   beforeMount() {
-    EventBus.$on(ON_RESIZE_EVENT, this.resize)
+    EventBus.$on(UPDATE_NAVBAR_EVENT, this.resize)
   }
 
   mounted() {
@@ -50,7 +50,7 @@ export default class Navbar extends Vue {
   }
 
   beforeDestroy() {
-    EventBus.$off(ON_RESIZE_EVENT, this.resize)
+    EventBus.$off(UPDATE_NAVBAR_EVENT, this.resize)
   }
 
   resize() {

@@ -10,7 +10,7 @@
 import { Component, Vue } from "nuxt-property-decorator"
 import throttle from 'lodash/throttle'
 
-import { EventBus, ON_RESIZE_EVENT } from "~/lib"
+import { EventBus, UPDATE_PARALLAX_EVENT, IS_MOBILE_EVENT, UPDATE_NAVBAR_EVENT } from "~/lib"
 
 import Navbar from '~/components/Navbar.vue'
 import AppFooter from '~/components/AppFooter.vue'
@@ -23,19 +23,39 @@ import AppFooter from '~/components/AppFooter.vue'
 })
 export default class extends Vue {
 
+  windowWidth = 0
+
+  get isMobile(): boolean {
+    return this.windowWidth < 768
+  }
+
   beforeMount() {
-    window.addEventListener('scroll', this.emitResizeEvent)
-    window.addEventListener('resize', this.emitResizeEvent)   
+    window.addEventListener('scroll', this.resizeEvent)
+    window.addEventListener('resize', this.resizeEvent)   
+    
+    this.windowWidth = document.body.clientWidth
   }
 
   beforeDestroy() {
-    window.removeEventListener('scroll', this.emitResizeEvent)
-    window.removeEventListener('resize', this.emitResizeEvent)
+    window.removeEventListener('scroll', this.resizeEvent)
+    window.removeEventListener('resize', this.resizeEvent)
   }
 
-  emitResizeEvent = throttle((event: Event) => {
-    EventBus.$emit(ON_RESIZE_EVENT, event)
+  resizeEvent = throttle((event: Event) => {
+    this.windowWidth = document.body.clientWidth
+
+    if (!this.isMobile) {
+      EventBus.$emit(UPDATE_PARALLAX_EVENT, event)
+    }
+    else {
+      this.isMobileEvent()
+    }
+    EventBus.$emit(UPDATE_NAVBAR_EVENT, event)
   }, 10)
+
+  isMobileEvent = throttle(() => {
+    EventBus.$emit(IS_MOBILE_EVENT)
+  }, 200)
 
 }
 </script>

@@ -10,7 +10,7 @@
 
     parallax(justify-content="end" :src="cssPlaygroundImage" :modifier="1.2")
       card.elevation-medium(slot="fixed" width="30em" color="primary")
-        h2(slot="title") CSS Playground
+        h2.text-underline-accent.inline-block(slot="title") CSS Playground
         div(slot="text") 
           p.text-center A web app that makes <a href="http://css-playground.com">learning CSS</a> fun with playful sliders and select boxes.
 
@@ -22,7 +22,7 @@
 
     parallax(justify-content="start" :src="stealthGameImage" :modifier="1.2")
       card.elevation-medium(slot="fixed" width="30em" color="accent")
-        h2(slot="title") Stealth Game
+        h2.text-underline-primary.inline-block(slot="title") Stealth Game
         div(slot="text") 
           p.text-center Made in Unreal Engine 4, Stealth game is a cat/mouse game where you can use tools and abilities to sneak past and dodge enemies. <a href="https://github.com/itsdatnguyen/stealth-game">Github</a>
 
@@ -34,7 +34,7 @@
 
     parallax(justify-content="end" :src="redsAdventureImage" :modifier="1.2")
       card.elevation-medium(slot="fixed" width="30em" color="primary")
-        h2(slot="title") Red's Adventure
+        h2.text-underline-accent.inline-block(slot="title") Red's Adventure
         div(slot="text") 
           p.text-center Made in Game Maker, Red's Adventure is a platforming, action based game that rewards good reaction time. <a href="https://github.com/itsdatnguyen/reds-adventure">Github</a>
 
@@ -45,7 +45,7 @@
 
     parallax(justify-content="start" :src="utilityImage" :modifier="1.2")
       card.elevation-medium(slot="fixed" width="30em" color="accent")
-        h2(slot="title") Utility
+        h2.text-underline-primary.inline-block(slot="title") Utility
         div(slot="text") 
           p.text-center A website for everyday <a href="http://itsdatnguyen.github.io/utility">utilities.</a>
 </template>
