@@ -1,0 +1,32 @@
+@import './theme.sass'
+
+.banner
+  display: flex
+  flex-direction: column
+  padding: 2em
+  min-height: 6em
+
+  .banner__banner-title
+    margin: 0 0.5em
+    color: $text-dark-grey
+    flex-basis: 50%
+
+  .banner__banner-text
+    margin: 0 0.5em
+    color: $text-light-grey
+    flex-basis: 50%
+
+@media screen and (min-width: 768px)
+  .banner 
+    flex-direction: row
+
+
+.banner--primary
+  background-color: $primary
+
+.banner--accent
+  background-color: $accent
+
+.banner--small
+  min-height: 2em
+

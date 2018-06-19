@@ -1,0 +1,51 @@
+@import './theme.sass'
+  
+$navbar-padding: 1em
+$navbar-text-color: #EEEEEE
+
+.navbar
+  display: flex
+  width: 100%
+  z-index: 10
+
+  .navbar__brand-logo
+    padding: $navbar-padding
+    color: $navbar-text-color
+    text-decoration: none
+    transition: background-color .2s ease-in-out
+
+  .navbar__link-spacer
+    flex: 1 1 auto
+    transition: background-color .2s ease-in-out
+
+  .navbar__links
+    padding: $navbar-padding
+    display: flex
+    transition: background-color .2s ease-in-out
+
+
+.navbar--icon
+  width: 24px
+  height: 24px
+  margin: 0px 1vw
+  background-color: $navbar-text-color
+
+.navbar--outline
+  background-color: $secondary
+
+.navbar--resume-icon
+  background-image: url('../img/icon/assignment-24px.svg')
+  @extend .navbar--icon
+
+.navbar--contact-icon
+  background-image: url('../img/icon/contact-24px.svg')
+  @extend .navbar--icon
+
+.navbar--about-icon
+  background-image: url('../img/icon/about-24px.svg')
+  @extend .navbar--icon
+
+.navbar--fixed
+  position: fixed
+  top: 0
+  left: 0
