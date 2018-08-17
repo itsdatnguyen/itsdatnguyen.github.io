@@ -4,7 +4,8 @@
       .parallax__image(ref="img" :style="imgStyles")
     .parallax__fixed-content(:class="justifyDirection")
       slot(name="fixed")
-    downward-arrow.parallax--downward-icon(v-if="showDownwardIcon" :class="ready ? 'parallax--downward-icon-ready' : ''")
+    button.parallax--downward-icon(v-if="showDownwardIcon" :class="ready ? 'parallax--downward-icon-ready' : ''" @click="onDownwardIconClicked")
+      downward-arrow
 </template>
 
 
@@ -44,6 +45,22 @@ export default class Parallax extends Vue {
     }
   }
 
+  get justifyDirection(): string {
+    switch (this.justifyContent) {
+      case 'center':
+        return 'justify-center'
+
+      case 'start':
+        return 'justify-start'
+
+      case 'end':
+        return 'justify-end'
+
+      default:
+        return ''
+    }
+  }
+
   beforeMount() {
     EventBus.$on(UPDATE_PARALLAX_EVENT, this.resize)
     EventBus.$on(IS_MOBILE_EVENT, this.resetParallax)
@@ -70,19 +87,17 @@ export default class Parallax extends Vue {
     this.parallax = Math.round(scrollOffset / -this.modifier)
   }
 
-  get justifyDirection(): string {
-    switch (this.justifyContent) {
-      case 'center':
-        return 'justify-center'
+  onDownwardIconClicked() {
+    const topOffset = (window.innerHeight / 2) + 120
 
-      case 'start':
-        return 'justify-start'
-
-      case 'end':
-        return 'justify-end'
-
-      default:
-        return ''
+    if (typeof window.scroll === 'function') {
+      window.scroll({
+        top: topOffset,
+        behavior: 'smooth'
+      })
+    }
+    else {
+      document.documentElement.scrollTop = topOffset
     }
   }
 }

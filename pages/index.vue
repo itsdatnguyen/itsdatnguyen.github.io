@@ -4,7 +4,7 @@
       card.elevation-large(slot="fixed" color="primary" :ghost="true")
         h1(slot="title") Dat Nguyen Repository
 
-    banner(color="accent" :displayArrow="true")
+    banner(color="accent" :displayArrow="true" ref="topBanner")
       h3(slot="title") Hi, I am Dat Nguyen.
       p(slot="text") This is a repository of some of my projects I've made over the last few years.
 
