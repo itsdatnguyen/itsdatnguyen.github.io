@@ -4,16 +4,19 @@
       card.elevation-large(slot="fixed" color="primary" :ghost="true")
         h1(slot="title") Contact
     banner(color="accent" :small="true" :displayArrow="true" :hasSpacing="true")
-    article.text-container
-      banner(color="accent" :small="true")
-        h2.text-emphasize-primary(slot="title") Email
-      p Need a custom website done? Have any questions about my work? Send me an email at <a href="mailto:demesnewebsite@gmail.com">demesnewebsite@gmail.com</a>
-      banner(color="accent" :small="true")
-        h2.text-emphasize-primary(slot="title") Github
-      p Check out my projects at my Github: <a href="https://github.com/itsdatnguyen">itsdatnguyen</a>
-      banner(color="accent" :small="true")
-        h2.text-emphasize-primary(slot="title") LinkedIn
-      p Also my <a href="https://www.linkedin.com/in/datquangnguyen/">LinkedIn</a>
+    article
+      .text-container
+        banner(color="accent" :small="true")
+          h2.text-emphasize-primary(slot="title") Email
+        p Need a custom website done? Have any questions about my work? Send me an email at <a href="mailto:demesnewebsite@gmail.com">demesnewebsite@gmail.com</a>
+      .text-container
+        banner(color="accent" :small="true")
+          h2.text-emphasize-primary(slot="title") Github
+        p Check out my projects at my Github: <a href="https://github.com/itsdatnguyen">itsdatnguyen</a>
+      .text-container
+        banner(color="accent" :small="true")
+          h2.text-emphasize-primary(slot="title") LinkedIn
+        p Also my <a href="https://www.linkedin.com/in/datquangnguyen/">LinkedIn</a>
 </template>
 
 
