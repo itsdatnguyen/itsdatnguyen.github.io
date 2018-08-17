@@ -45,7 +45,7 @@ export default class extends Vue {
     this.windowWidth = document.body.clientWidth
 
     if (!this.isMobile) {
-      EventBus.$emit(UPDATE_PARALLAX_EVENT, event)
+      window.requestAnimationFrame(this.emitParallaxEvent)
     }
     else {
       this.isMobileEvent()
@@ -56,6 +56,10 @@ export default class extends Vue {
   isMobileEvent = throttle(() => {
     EventBus.$emit(IS_MOBILE_EVENT)
   }, 200)
+
+  emitParallaxEvent() {
+    EventBus.$emit(UPDATE_PARALLAX_EVENT)
+  }
 
 }
 </script>
