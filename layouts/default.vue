@@ -29,10 +29,19 @@ export default class extends Vue {
     return this.windowWidth < 768
   }
 
+  get shouldEnableParallax() {
+    // sorry IE/Edge, you just don't work well with parallax.
+    // god will most likely condemn me to hell for using user agents.
+    var ua = window.navigator.userAgent;
+    var isInferiorBrowser = /MSIE|Trident|Edge/.test(ua);
+
+    return !isInferiorBrowser
+  }
+
   beforeMount() {
     window.addEventListener('scroll', this.resizeEvent)
     window.addEventListener('resize', this.resizeEvent)   
-    
+   
     this.windowWidth = document.body.clientWidth
   }
 
@@ -44,7 +53,7 @@ export default class extends Vue {
   resizeEvent = throttle((event: Event) => {
     this.windowWidth = document.body.clientWidth
 
-    if (!this.isMobile) {
+    if (!this.isMobile && this.shouldEnableParallax) {
       window.requestAnimationFrame(this.emitParallaxEvent)
     }
     else {
