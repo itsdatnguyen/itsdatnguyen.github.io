@@ -154,7 +154,35 @@ module.exports = {
   ** Build configuration
   */
   css: ["~/assets/sass/index.sass"],
-  build: {},
+  build: {
+    extend (config, ctx) {
+      const urlLoaderIndex = config.module.rules.findIndex(r => String(r.test) === String(/\.(png|jpe?g|gif|svg)$/))
+      if (urlLoaderIndex !== -1) {
+        config.module.rules[urlLoaderIndex].test = /\.(png|jpe?g|gif)$/
+      }
+      else {        
+        console.error('vue-svg-loader is not the default loader for svgs')
+      }
+
+      config.module.rules.push({
+        test: /\.svg$/,
+        loader: 'vue-svg-loader', // `vue-svg` for webpack 1.x
+        options: {
+          // optional [svgo](https://github.com/svg/svgo) options
+          svgo: {
+            plugins: [
+              {removeDoctype: true},
+              {removeComments: true},
+              {cleanupIDs: false},
+              {collapseGroups: false},
+              {removeEmptyContainers: false},
+              {removeViewBox: false}
+            ]
+          }
+        }
+      });
+    },
+  },
   modules: [
     "@nuxtjs/axios",
     "~/modules/typescript.js"

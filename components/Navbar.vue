@@ -3,9 +3,12 @@
     nuxt-link.navbar__brand-logo(to="/" :class="outlineClasses" title="Home") Dat Nguyen
     .navbar__link-spacer(:class="spacerClasses")
     .navbar__links(:class="outlineClasses")
-      nuxt-link.navbar--about-icon(to="/about" title="About")
-      nuxt-link.navbar--contact-icon(to="/contact" title="Contact")
-      a.navbar--resume-icon(download href="./resume.pdf" title="Download Resume")
+      nuxt-link.navbar--icon.navbar--icon-center(to="/about" title="About")
+        about-icon
+      nuxt-link.navbar--icon.navbar--icon-center(to="/contact" title="Contact")
+        contact-icon
+      a.navbar--icon.navbar--icon-center(download href="./resume.pdf" title="Download Resume")
+        resume-icon
 
     
 </template>
@@ -16,7 +19,17 @@ import { Component, Vue, Prop } from "nuxt-property-decorator"
 
 import { EventBus, UPDATE_NAVBAR_EVENT } from "~/lib"
 
-@Component({})
+import AboutIcon from '~/assets/img/icon/person-24px.svg'
+import ContactIcon from '~/assets/img/icon/message-24px.svg'
+import ResumeIcon from '~/assets/img/icon/cloud_download-24px.svg'
+
+@Component({
+  components: {
+    AboutIcon,
+    ContactIcon,
+    ResumeIcon
+  } as any
+})
 export default class Navbar extends Vue {
 
   scrollDistance = 0

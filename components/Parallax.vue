@@ -4,7 +4,7 @@
       .parallax__image(ref="img" :style="imgStyles")
     .parallax__fixed-content(:class="justifyDirection")
       slot(name="fixed")
-    img.parallax--downward-icon(v-if="showDownwardIcon" :class="ready ? 'parallax--downward-icon-ready' : ''" :src="downwardIconSrc")
+    downward-arrow.parallax--downward-icon(v-if="showDownwardIcon" :class="ready ? 'parallax--downward-icon-ready' : ''")
 </template>
 
 
@@ -13,7 +13,13 @@ import { Component, Vue, Prop } from "nuxt-property-decorator"
 
 import { EventBus, UPDATE_PARALLAX_EVENT, IS_MOBILE_EVENT } from "~/lib"
 
-@Component({})
+import DownwardArrow from '~/assets/img/icon/arrow_downward-24px.svg'
+
+@Component({
+  components: {
+    DownwardArrow
+  } as any
+})
 export default class Parallax extends Vue {
 
   @Prop({ type: String, default: 'center' })
@@ -29,10 +35,7 @@ export default class Parallax extends Vue {
   showDownwardIcon: boolean
 
   parallax = 0
-
   ready = false
-
-  downwardIconSrc = require('~/assets/img/icon/arrow_downward-24px.svg')
 
   get imgStyles() {
     return {

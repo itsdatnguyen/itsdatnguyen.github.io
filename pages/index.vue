@@ -4,7 +4,7 @@
       card.elevation-large(slot="fixed" color="primary" :ghost="true")
         h1(slot="title") Dat Nguyen Repository
 
-    banner(color="accent")
+    banner(color="accent" :displayArrow="true")
       h3(slot="title") Hi, I am Dat Nguyen.
       p(slot="text") This is a repository of some of my projects I've made over the last few years.
 
@@ -14,7 +14,7 @@
         div(slot="text") 
           p.text-center A web app that makes <a href="http://css-playground.com">learning CSS</a> fun with playful sliders and select boxes.
 
-    banner(color="primary")
+    banner(color="primary" :displayArrow="true")
       h3(slot="title") In my free time I create websites.
       div(slot="text")
         p I focus on creating responsive and interactive websites. 
@@ -26,7 +26,7 @@
         div(slot="text") 
           p.text-center Made in Unreal Engine 4, Stealth game is a cat/mouse game where you can use tools and abilities to sneak past and dodge enemies. <a href="https://github.com/itsdatnguyen/stealth-game">Github</a>
 
-    banner(color="accent")
+    banner(color="accent" :displayArrow="true")
       h3(slot="title") I've also created some games.
       div(slot="text")
         p I've used Unreal Engine 4, Unity and Game Maker.
@@ -38,7 +38,7 @@
         div(slot="text") 
           p.text-center Made in Game Maker, Red's Adventure is a platforming, action based game that rewards good reaction time. <a href="https://github.com/itsdatnguyen/reds-adventure">Github</a>
 
-    banner(color="primary")
+    banner(color="primary" :displayArrow="true")
       h3(slot="title") I use lots of tools.
       div(slot="text")
         p Typescript, Webpack, NPM, Sass, Git and Pug give me must-have productivity boosts.

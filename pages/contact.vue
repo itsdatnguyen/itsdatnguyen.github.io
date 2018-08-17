@@ -3,7 +3,7 @@
     parallax(justify-content="center" :src="headerImage" :modifier="1.2" :show-downward-icon="true")
       card.elevation-large(slot="fixed" color="primary" :ghost="true")
         h1(slot="title") Contact
-    banner(color="accent" :small="true")
+    banner(color="accent" :small="true" :displayArrow="true" :hasSpacing="true")
     article.text-container
       banner(color="accent" :small="true")
         h2.text-emphasize-primary(slot="title") Email
