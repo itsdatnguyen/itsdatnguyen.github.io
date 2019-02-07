@@ -18,7 +18,7 @@ export default class Card extends Vue {
   @Prop({ type: String, default: 'auto' })
   width: string
 
-  @Prop({ type: String, default: 'primary' })
+  @Prop({ type: String, default: '' })
   color: ThemeColor
 
   @Prop({ type: Boolean, default: false })

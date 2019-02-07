@@ -2,7 +2,9 @@
   section.home-page-container
     parallax(justify-content="center" :src="headerImage" :modifier="1.2" :show-downward-icon="true")
       card.elevation-large(slot="fixed" color="primary" :ghost="true")
-        h1(slot="title") Dat Nguyen Repository
+        h1(slot="title")
+          no-ssr
+            animated-typed-text(:text="['Dat Nguyen Repository']" :options="textOptions")
 
     banner(color="accent" :displayArrow="true" ref="topBanner")
       h3(slot="title") Hi, I am Dat Nguyen.
@@ -71,5 +73,9 @@ export default class IndexPage extends Vue {
   stealthGameImage = require('~/assets/img/stealth-game/models-min.jpg')
   redsAdventureImage = require('~/assets/img/reds-adventure/red-attacking-min.jpg')
   utilityImage = require('~/assets/img/utility/utility-demo-min.jpg')
+
+  textOptions = {
+    speed: 50
+  }
 }
 </script>

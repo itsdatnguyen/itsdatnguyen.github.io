@@ -146,6 +146,9 @@ module.exports = {
       },
     ]
   },
+  plugins: [
+    { src: '~/plugins/typeit.js', ssr: false },
+  ],
   /*
   ** Customize the progress-bar color
   */

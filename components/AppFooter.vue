@@ -1,6 +1,6 @@
 <template lang="pug">
   footer.app-footer
-    p.app-footer__text Dat Nguyen 2018
+    p.app-footer__text Dat Nguyen 2019
 </template>
 
 
